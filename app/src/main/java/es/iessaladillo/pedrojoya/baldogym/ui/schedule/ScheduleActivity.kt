@@ -61,7 +61,7 @@ class ScheduleActivity : AppCompatActivity() {
 
 
     private fun setupViews() {
-        viewModel.selectDayOfTrainning(viewModel.currentDay.value)
+        changeList(viewModel.currentDay.value!!)
         dayOfTheWeekLbl.text = viewModel.currentDay.value?.nameResId?.let { getString(it) }
         setupRecyclerView()
         lblMonday.setOnClickListener { changeList(WeekDay.MONDAY) }
@@ -83,9 +83,70 @@ class ScheduleActivity : AppCompatActivity() {
 
     private fun pintarDiaDeLaSemana(dayOfWeek: WeekDay) {
         dayOfTheWeekLbl.text = getString(dayOfWeek.nameResId)
-        when(dayOfWeek){
-            WeekDay.MONDAY -> lblMonday.setTextColor(Color.parseColor("#000000"))
-                                lblTuesday.setTextColor(Color.parseColor())
+        when (dayOfWeek) {
+            WeekDay.MONDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#FFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#AAFFFFFF"))
+            }
+            WeekDay.TUESDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#FFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#AAFFFFFF"))
+            }
+            WeekDay.WEDNESDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#FFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#AAFFFFFF"))
+            }
+            WeekDay.THURSDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#FFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#AAFFFFFF"))
+            }
+            WeekDay.FRIDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#FFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#AAFFFFFF"))
+            }
+            WeekDay.SATURDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#FFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#AAFFFFFF"))
+            }
+            WeekDay.SUNDAY -> {
+                lblMonday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblTuesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblWednesday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblThursday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblFriday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSaturday.setTextColor(Color.parseColor("#AAFFFFFF"))
+                lblSunday.setTextColor(Color.parseColor("#FFFFFF"))
+            }
         }
     }
 
