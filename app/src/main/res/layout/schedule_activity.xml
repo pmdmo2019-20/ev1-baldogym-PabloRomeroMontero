@@ -90,8 +90,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/schedule_monday"
-        app:layout_constraintEnd_toEndOf="@+id/lblMonday"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toTopOf="@id/lstTraining"
+        app:layout_constraintEnd_toEndOf="@+id/lblMonday"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblMonday" />
 
