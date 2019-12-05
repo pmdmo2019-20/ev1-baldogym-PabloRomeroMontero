@@ -17,6 +17,8 @@ import es.iessaladillo.pedrojoya.baldogym.ui.trainingsession.TrainingSessionActi
 import kotlinx.android.synthetic.main.schedule_activity.*
 
 class ScheduleActivity : AppCompatActivity() {
+    private val RC_DATE_SELECTION: Int = 1
+
 
     private val viewModel: ScheduleActivityViewModel by lazy {
         ViewModelProvider(this, ScheduleActivityViewModelFactory(LocalRepository, application))
@@ -39,7 +41,7 @@ class ScheduleActivity : AppCompatActivity() {
     }
 
     private fun navigateToTrainerActivity(id: Long) {
-        val intent = TrainingSessionActivity.newIntent(this, day, month, year)
+        val intent = TrainingSessionActivity.newIntent(this, id)
         startActivityForResult(intent, RC_DATE_SELECTION)
 
     }
