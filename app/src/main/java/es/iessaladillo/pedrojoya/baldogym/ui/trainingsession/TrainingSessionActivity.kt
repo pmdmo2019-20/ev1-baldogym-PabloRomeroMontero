@@ -51,8 +51,7 @@ class TrainingSessionActivity : AppCompatActivity() {
             btn_Activity.setBackgroundColor(Color.parseColor("#FFFFFF"))
 
         }
-
-
+        setActivityResult(false)
         btn_Activity.setOnClickListener { changeTraining(id) }
     }
 
@@ -62,7 +61,6 @@ class TrainingSessionActivity : AppCompatActivity() {
             viewModelActivity.trainingSession.userJoined
         )
         viewModelActivity.getTrainingToRepository(id)
-        setActivityResult(viewModelActivity.cambiado)
         setupViews()
     }
 

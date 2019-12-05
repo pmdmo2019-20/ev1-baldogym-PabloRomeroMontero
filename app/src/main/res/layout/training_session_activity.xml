@@ -88,8 +88,8 @@
         android:id="@+id/lblDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/descripcion_Prueba"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout_actividad"
@@ -126,5 +126,17 @@
             android:layout_weight="1"
             android:text="@string/schedule_item_join" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/lblBarra"
+        style="@style/grey_bar"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/lblDescripcion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRoom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
