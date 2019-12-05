@@ -7,10 +7,10 @@ import es.iessaladillo.pedrojoya.baldogym.data.Repository
 import java.lang.IllegalArgumentException
 
 @Suppress("UNCHECKED_CAST")
-class TrainingSessionViewModelFactory(val repository: Repository, val app: Application) : ViewModelProvider.Factory{
+class TrainingSessionViewModelFactory(val repository: Repository) : ViewModelProvider.Factory{
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(TraininingsessionActivityViewModel::class.java)){
-            return TraininingsessionActivityViewModel(repository,app) as T
+            return TraininingsessionActivityViewModel(repository) as T
         }
         throw IllegalArgumentException("Must provide TrainingsessionActivityViewModel class")
     }

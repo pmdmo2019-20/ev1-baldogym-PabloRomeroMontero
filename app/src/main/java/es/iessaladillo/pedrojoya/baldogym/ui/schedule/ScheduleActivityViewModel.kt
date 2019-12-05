@@ -12,12 +12,10 @@ import es.iessaladillo.pedrojoya.baldogym.data.entity.getCurrentWeekDay
 import es.iessaladillo.pedrojoya.baldogym.utils.Event
 
 class ScheduleActivityViewModel(
-    repository: Repository,
-    app: Application
+    repository: Repository
 ): ViewModel() {
 
     private val localRepository = repository
-    private val application = app
 
     private val _currentDay: MutableLiveData<WeekDay> = MutableLiveData(getCurrentWeekDay())
     val currentDay: LiveData<WeekDay>
@@ -32,16 +30,9 @@ class ScheduleActivityViewModel(
         return _trainersSessions
     }
 
-
-
-    private val _onStartActivity: MutableLiveData<Event<Intent>> = MutableLiveData()
-    val onStartActivity: LiveData<Event<Intent>>
-        get() = _onStartActivity
-
     fun updateLiveData(){
         _trainersSessions.value = localRepository.queryTrainersofDayOfTheWeek(currentDay.value!!)
     }
-
 
     fun selectDayOfTrainning(weekDay: WeekDay?){
         _currentDay.value = weekDay

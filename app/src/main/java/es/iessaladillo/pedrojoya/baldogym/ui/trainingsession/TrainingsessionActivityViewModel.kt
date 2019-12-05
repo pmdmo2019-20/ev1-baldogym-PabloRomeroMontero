@@ -7,14 +7,23 @@ import es.iessaladillo.pedrojoya.baldogym.data.entity.TrainingSession
 
 
 class TraininingsessionActivityViewModel(
-    repository: Repository,
-    app: Application
-): ViewModel() {
+    repository: Repository
+) : ViewModel() {
     val localRepository = repository
     var cambiado: Boolean = false
 
     fun getTrainingToRepository(id: Long) {
-       trainingSession = localRepository.queryTrainerSession(id)!!
+        trainingSession = localRepository.queryTrainerSession(id)!!
     }
+
+    fun updateTrainingSessionJoinedState(trainingSession: TrainingSession, userJoined: Boolean) {
+        if (userJoined) {
+            localRepository.markTrainingSessionAsQuit(trainingSession.id)
+        } else {
+            localRepository.markTrainingSessionAsJoined(trainingSession.id)
+        }
+
+    }
+
     lateinit var trainingSession: TrainingSession
 }

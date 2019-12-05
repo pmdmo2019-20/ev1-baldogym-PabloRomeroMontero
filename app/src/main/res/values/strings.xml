@@ -40,5 +40,7 @@
     <string name="trainer_prueba">Trainer 2</string>
     <string name="room_prueba">Zumba Room</string>
     <string name="name_prueba">Zumba</string>
+    <string name="dayOfTheWeek_Prueba">Monday</string>
+    <string name="descripcion_Prueba">Una clase muy entretenida</string>
 
 </resources>

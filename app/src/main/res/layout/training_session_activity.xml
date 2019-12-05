@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_activity"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="6dp"
@@ -26,12 +26,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/name_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblTrainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/img_activity"
         app:layout_constraintVertical_bias="0.213" />
 
     <TextView
@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/trainer_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblDayofWeek"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/lblTime_item"
+        android:text="@string/dayOfTheWeek_Prueba"
+        app:layout_constraintBottom_toTopOf="@+id/lblTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/time_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblRoom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
+        android:text="@string/room_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
@@ -92,15 +92,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:text="@string/descripcion_Prueba"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout_actividad"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblRoom" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearLayout_actividad"
         style="@style/weekbar_element"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="participantes 46"
+            android:text="@string/participantes_prueba"
             android:textColor="@color/white" />
 
         <Button

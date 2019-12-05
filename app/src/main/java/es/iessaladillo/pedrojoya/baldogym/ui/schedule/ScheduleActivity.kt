@@ -23,7 +23,7 @@ class ScheduleActivity : AppCompatActivity() {
 
 
     private val viewModel: ScheduleActivityViewModel by lazy {
-        ViewModelProvider(this, ScheduleActivityViewModelFactory(LocalRepository, application))
+        ViewModelProvider(this, ScheduleActivityViewModelFactory(LocalRepository))
             .get(ScheduleActivityViewModel::class.java)
     }
     private val listAdapter: ScheduleActivityAdapter = ScheduleActivityAdapter().apply {
@@ -45,7 +45,6 @@ class ScheduleActivity : AppCompatActivity() {
     private fun navigateToTrainerActivity(id: Long) {
         val intent = TrainingSessionActivity.newIntent(this, id)
         startActivityForResult(intent, RC_ID_SELECTION)
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,9 +73,7 @@ class ScheduleActivity : AppCompatActivity() {
 
     }
 
-    private fun changeList(
-        dayOfWeek: WeekDay
-    ) {
+    private fun changeList(dayOfWeek: WeekDay) {
         pintarDiaDeLaSemana(dayOfWeek)
         viewModel.selectDayOfTrainning(dayOfWeek)
     }
@@ -161,7 +158,6 @@ class ScheduleActivity : AppCompatActivity() {
 
     }
 
-
     private fun showList(trainingSesions: List<TrainingSession>) {
         lstTraining.post {
             listAdapter.submitList(trainingSesions)
@@ -172,10 +168,6 @@ class ScheduleActivity : AppCompatActivity() {
             }
         }
     }
-
-
-//    --
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
