@@ -51,7 +51,7 @@ class TrainingSessionActivity : AppCompatActivity() {
             btn_Activity.setBackgroundColor(Color.parseColor("#FFFFFF"))
 
         }
-        setActivityResult(false)
+        setActivityResult()
         btn_Activity.setOnClickListener { changeTraining(id) }
     }
 
@@ -74,9 +74,9 @@ class TrainingSessionActivity : AppCompatActivity() {
         viewModelActivity.getTrainingToRepository(id)
     }
 
-    private fun setActivityResult(boolean: Boolean) {
+    private fun setActivityResult() {
         val result = Intent().putExtras(
-            bundleOf(EXTRA_ID to boolean)
+            bundleOf(EXTRA_ID to id)
         )
         setResult(RESULT_OK, result)
     }
