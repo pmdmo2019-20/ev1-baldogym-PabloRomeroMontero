@@ -11,6 +11,8 @@ class TraininingsessionActivityViewModel(
     app: Application
 ): ViewModel() {
     val localRepository = repository
+    var cambiado: Boolean = false
+
     fun getTrainingToRepository(id: Long) {
        trainingSession = localRepository.queryTrainerSession(id)!!
     }

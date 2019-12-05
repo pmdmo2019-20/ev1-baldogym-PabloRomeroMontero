@@ -1,5 +1,7 @@
 package es.iessaladillo.pedrojoya.baldogym.ui.schedule
 
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -17,7 +19,7 @@ import es.iessaladillo.pedrojoya.baldogym.ui.trainingsession.TrainingSessionActi
 import kotlinx.android.synthetic.main.schedule_activity.*
 
 class ScheduleActivity : AppCompatActivity() {
-    private val RC_DATE_SELECTION: Int = 1
+    private val RC_ID_SELECTION: Int = 1
 
 
     private val viewModel: ScheduleActivityViewModel by lazy {
@@ -42,7 +44,7 @@ class ScheduleActivity : AppCompatActivity() {
 
     private fun navigateToTrainerActivity(id: Long) {
         val intent = TrainingSessionActivity.newIntent(this, id)
-        startActivityForResult(intent, RC_DATE_SELECTION)
+        startActivityForResult(intent, RC_ID_SELECTION)
 
     }
 
@@ -72,9 +74,19 @@ class ScheduleActivity : AppCompatActivity() {
 
     }
 
-    private fun changeList(dayOfWeek: WeekDay) {
+    private fun changeList(
+        dayOfWeek: WeekDay
+    ) {
+        pintarDiaDeLaSemana(dayOfWeek)
         viewModel.selectDayOfTrainning(dayOfWeek)
-        dayOfTheWeekLbl.text=getString(dayOfWeek.nameResId)
+    }
+
+    private fun pintarDiaDeLaSemana(dayOfWeek: WeekDay) {
+        dayOfTheWeekLbl.text = getString(dayOfWeek.nameResId)
+        when(dayOfWeek){
+            WeekDay.MONDAY -> lblMonday.setTextColor(Color.parseColor("#000000"))
+                                lblTuesday.setTextColor(Color.parseColor())
+        }
     }
 
     private fun setupRecyclerView() {
@@ -99,5 +111,18 @@ class ScheduleActivity : AppCompatActivity() {
             }
         }
     }
+
+
+//    --
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intent)
+        if (resultCode == RESULT_OK && requestCode == RC_ID_SELECTION && intent != null) {
+            viewModel.selectDayOfTrainning(viewModel.currentDay.value)
+        }
+    }
+
+
 }
 

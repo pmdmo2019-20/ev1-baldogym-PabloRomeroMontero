@@ -70,7 +70,6 @@ class ScheduleActivityAdapter : RecyclerView.Adapter<ViewHolder> () {
             }
         }
 
-        @SuppressLint("ResourceAsColor")
         fun bind(item: TrainingSession){
             lblNameTraining_item.text = item.name
             lblTrainer_item.text = item.trainer
@@ -80,12 +79,13 @@ class ScheduleActivityAdapter : RecyclerView.Adapter<ViewHolder> () {
 
             if(item.userJoined){
                 btnJoin_item.setText(R.string.schedule_item_quit)
-//                ResourcesCompat.getColor( Resources.getSystem().getColor(R.color.primary, R.style.AppTheme))
-                btnJoin_item.setTextColor(R.color.white)
+                btnJoin_item.setBackgroundColor(Color.parseColor("#000000"))
+                btnJoin_item.setTextColor( Color.parseColor("#FFFFFF"))
             }else{
                 btnJoin_item.setText(R.string.schedule_item_join)
-                btnJoin_item.setBackgroundColor(R.color.white)
-                btnJoin_item.setTextColor(R.color.primary)
+                btnJoin_item.setTextColor(Color.parseColor("#000000"))
+                btnJoin_item.setBackgroundColor( Color.parseColor("#FFFFFF"))
+
             }
         }
 

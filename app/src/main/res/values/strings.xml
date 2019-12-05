@@ -35,5 +35,10 @@
     <string name="session_not_found">Training session not found</string>
     <string name="session_imgPhoto">Training session photo</string>
     <string name="participantes">participantes %d</string>
+    <string name="time_prueba">17:00 - 18:00</string>
+    <string name="participantes_prueba">46 Participant es</string>
+    <string name="trainer_prueba">Trainer 2</string>
+    <string name="room_prueba">Zumba Room</string>
+    <string name="name_prueba">Zumba</string>
 
 </resources>
