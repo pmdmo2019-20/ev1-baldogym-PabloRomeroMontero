@@ -29,7 +29,7 @@
         android:text="@string/name_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblTrainer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_activity"
         app:layout_constraintVertical_bias="0.213" />
@@ -38,7 +38,6 @@
         android:id="@+id/lblTrainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/trainer_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblDayofWeek"
@@ -51,12 +50,11 @@
         android:id="@+id/lblDayofWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/dayOfTheWeek_Prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblTime"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.044"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lblTrainer" />
 
@@ -64,12 +62,11 @@
         android:id="@+id/lblTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/time_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblRoom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblDayofWeek" />
 
@@ -77,12 +74,11 @@
         android:id="@+id/lblRoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/room_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblDescripcion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblTime" />
 
@@ -90,12 +86,11 @@
         android:id="@+id/lblDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/descripcion_Prueba"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout_actividad"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblRoom" />
 

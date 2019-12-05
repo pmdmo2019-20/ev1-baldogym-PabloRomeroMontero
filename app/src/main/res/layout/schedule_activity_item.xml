@@ -9,14 +9,15 @@
     tools:context=".ui.schedule.ScheduleActivity">
 
 
-
     <TextView
         android:id="@+id/lblTime_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:text="@string/time_prueba"
         app:layout_constraintBottom_toTopOf="@+id/imageView_item"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,22 +51,21 @@
         android:id="@+id/lblParticipantes_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:text="@string/participantes_prueba"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblRoom_item"
+        app:layout_constraintEnd_toEndOf="@+id/btnJoin_item"
+        app:layout_constraintStart_toStartOf="@+id/btnJoin_item"
         app:layout_constraintTop_toBottomOf="@+id/btnJoin_item" />
 
     <TextView
         android:id="@+id/lblTrainer_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="158dp"
+        android:layout_marginStart="16dp"
         android:text="@string/trainer_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblRoom_item"
-        app:layout_constraintEnd_toStartOf="@+id/btnJoin_item"
+        app:layout_constraintEnd_toEndOf="@id/lblNameTraining_item"
         app:layout_constraintStart_toEndOf="@+id/imageView_item"
         app:layout_constraintTop_toBottomOf="@+id/lblNameTraining_item" />
 
@@ -74,10 +74,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginEnd="112dp"
         android:text="@string/room_prueba"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/lblParticipantes_item"
+        app:layout_constraintEnd_toEndOf="@+id/lblTrainer_item"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toEndOf="@+id/imageView_item"
         app:layout_constraintTop_toBottomOf="@+id/lblTrainer_item"
         app:layout_constraintVertical_bias="0.312" />
@@ -87,7 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="158dp"
+        android:layout_marginEnd="120dp"
         android:text="@string/name_prueba"
         app:layout_constraintBottom_toTopOf="@+id/lblTrainer_item"
         app:layout_constraintEnd_toStartOf="@+id/btnJoin_item"
