@@ -7,25 +7,156 @@ import java.util.concurrent.ThreadLocalRandom
 
 object LocalRepository : Repository {
 
-    // TODO:
+    override fun queryTrainersofDayOfTheWeek(day: WeekDay): List<TrainingSession> {
+        val listOfDayOfWeek: MutableList<TrainingSession> = mutableListOf()
+        trainingList.forEach {
+            if (it.weekDay == day) {
+                listOfDayOfWeek.add(it)
+            }
+        }
+        return listOfDayOfWeek
+    }
 
-    private fun createWeekSchedule(): List<TrainingSession> {
+    override fun queryTrainerSession(id: Long): TrainingSession? {
+        var trainingSession: TrainingSession? = null
+        trainingList.forEach {
+            if (it.id == id) {
+                trainingSession = it
+            }
+        }
+        return trainingSession
+    }
+
+    private val trainingList: MutableList<TrainingSession> = createWeekSchedule()
+
+    override fun queryTrainers(): List<TrainingSession> = trainingList
+
+
+    override fun markTrainingSessionAsJoined(trainingId: Long) {
+        var trainingSesion: TrainingSession?= null
+
+        trainingList.forEach {
+            if (it.id == trainingId) {
+                trainingSesion = it
+            }
+        }
+
+        if (trainingSesion != null) {
+            editBoolean(trainingSesion!!, true)
+        }
+    }
+
+    override fun markTrainingSessionAsQuit(trainingId: Long) {
+        var trainingSesion: TrainingSession?= null
+
+        trainingList.forEach {
+            if (it.id == trainingId) {
+                trainingSesion = it
+            }
+        }
+
+        if (trainingSesion != null) {
+            editBoolean(trainingSesion!!, false)
+        }
+    }
+
+    private fun editBoolean(
+        it: TrainingSession,
+        b: Boolean
+    ) {
+        val position = trainingList.indexOf(it)
+        trainingList.removeAt(position)
+        if (b){
+
+            trainingList.add(
+                position, TrainingSession(
+                    it.id,
+                    it.name,
+                    it.weekDay,
+                    it.photoResId,
+                    it.description,
+                    it.time,
+                    it.trainer,
+                    it.room,
+                    it.participants +1,
+                    b
+                )
+            )
+    }else{
+            trainingList.add(
+                position, TrainingSession(
+                    it.id,
+                    it.name,
+                    it.weekDay,
+                    it.photoResId,
+                    it.description,
+                    it.time,
+                    it.trainer,
+                    it.room,
+                    it.participants-1,
+                    b
+                )
+            )
+        }
+    }
+
+    private fun createWeekSchedule(): MutableList<TrainingSession> {
 
         data class SessionType(val name: String, val photoResId: Int, val description: String)
 
         val bodyRoomSessionTypes: List<SessionType> = listOf(
-            SessionType("Body combat", R.drawable.bodycombat, "Body combat es un programa de entrenamiento cardiovascular insparado en las artes marciales. Coreografiado en base a una buena música, con sus excelentes instructores, los participantes realizan golpes, puñetazos, patadas y katas, queman calorías y consiguen una mayor resistencia cardiovascular."),
-            SessionType("Body step", R.drawable.bodystep, "Body step es un programa de entrenamiento que combina el trabajo cardiovascular con el de fuerza y resistencia muscular. A través de un buen entrenamiento interválico se consiguen resultados rápidamente."),
-            SessionType("Body attack", R.drawable.bodyattack, "Body attack es un entrenamiento insipirado en movimientos de diferentes disciplinas deportivas. Mejora la resistencia cardiovascular y la fuerza y resistencia muscular. Es una clase intensa de entrenamiento interválico que combina movimientos aeróbicos atléticos con ejercicios de fuerza y estabilización postural."),
-            SessionType("Body jump", R.drawable.bodyjump, "Body jump es un programa de ejercicios sobre un mini trampolín. La intensidad de la clase es media-alta. Aunque con una buena resistencia de base es apta para casi todos los públicos, ya que la lona del trampolín absorberá casi todo el impacto en cada salto y las articulaciones no sufren estrés. La coreografía es bastante sencilla de seguir, así que disfrutarás desde el primer día."),
-            SessionType("Body pump", R.drawable.bodypump, "Body pump es la clase original con barra y discos que fortalece y tonifica todo el cuerpo. En una sesión de Bodypump trabajas los principales grupos musculares utilizando los mejores ejercicios de la sala de fitness, como, por ejemplo, squats, presses, elevaciones y cursl.")
+            SessionType(
+                "Body combat",
+                R.drawable.bodycombat,
+                "Body combat es un programa de entrenamiento cardiovascular insparado en las artes marciales. Coreografiado en base a una buena música, con sus excelentes instructores, los participantes realizan golpes, puñetazos, patadas y katas, queman calorías y consiguen una mayor resistencia cardiovascular."
+            ),
+            SessionType(
+                "Body step",
+                R.drawable.bodystep,
+                "Body step es un programa de entrenamiento que combina el trabajo cardiovascular con el de fuerza y resistencia muscular. A través de un buen entrenamiento interválico se consiguen resultados rápidamente."
+            ),
+            SessionType(
+                "Body attack",
+                R.drawable.bodyattack,
+                "Body attack es un entrenamiento insipirado en movimientos de diferentes disciplinas deportivas. Mejora la resistencia cardiovascular y la fuerza y resistencia muscular. Es una clase intensa de entrenamiento interválico que combina movimientos aeróbicos atléticos con ejercicios de fuerza y estabilización postural."
+            ),
+            SessionType(
+                "Body jump",
+                R.drawable.bodyjump,
+                "Body jump es un programa de ejercicios sobre un mini trampolín. La intensidad de la clase es media-alta. Aunque con una buena resistencia de base es apta para casi todos los públicos, ya que la lona del trampolín absorberá casi todo el impacto en cada salto y las articulaciones no sufren estrés. La coreografía es bastante sencilla de seguir, así que disfrutarás desde el primer día."
+            ),
+            SessionType(
+                "Body pump",
+                R.drawable.bodypump,
+                "Body pump es la clase original con barra y discos que fortalece y tonifica todo el cuerpo. En una sesión de Bodypump trabajas los principales grupos musculares utilizando los mejores ejercicios de la sala de fitness, como, por ejemplo, squats, presses, elevaciones y cursl."
+            )
         )
         val zenRoomSessionTypes: List<SessionType> = listOf(
-            SessionType("Zumba", R.drawable.zumba, "Zumba es un programa de fitness que engloba elemento de danza y de aerobic. La coreografía de Zumba incorpora hip-hop, soca, samba, salsa, merengue, mambo y artes marciales. Incluye también sentadillas y estocadas. Los ejercicios incluyen música con ritmos rápidos y lentos, así como el entrenamiento de la resistencia."),
-            SessionType("Sh'bam", R.drawable.shabam, "Sh'bam es un programa divertido que combina movimientos de baile sencillos y muy sexys, es perfecto para ponerte en forma y dejar salir al artista que llevas dentro."),
-            SessionType("Latino", R.drawable.latino, "Latino mejora tu coordinación a ritmo de bachata, chachachá, reggaetón, samba o el mambo. Bailes latinos que mejoran tu autoestima. Es una actividad recomendada para todas las edades. No hace falta venir acompañado, el trabajo es individual."),
-            SessionType("Pilates", R.drawable.pilates, "Pilates es una rutina de acondicionamiento corporal que puede ayudarte a ganar flexibilidad, fuerza muscular y resistencia en las piernas, abdominales, brazos, caderas y espalda. Pone énfasis en la alineación de la columna vertebral y la pelvis, en la respiración y en el desarrollo de un tronco fuerte y mejora la coordinación y el equilibrio."),
-            SessionType("Yoga", R.drawable.yoga, "En el Yoga, como en la vida, se trata de encontrar la dicha y la serenidad del momento. Todo el mundo puede practicar yoga. Sin tener en cuenta la edad, la experiencia o el nivel de flexibilidad, todos podemos beneficiarnos del yoga, siempre y cuando mantengamos la flexibilidad mental y la paciencia. Las clases de yoga te equilibran el día.")
+            SessionType(
+                "Zumba",
+                R.drawable.zumba,
+                "Zumba es un programa de fitness que engloba elemento de danza y de aerobic. La coreografía de Zumba incorpora hip-hop, soca, samba, salsa, merengue, mambo y artes marciales. Incluye también sentadillas y estocadas. Los ejercicios incluyen música con ritmos rápidos y lentos, así como el entrenamiento de la resistencia."
+            ),
+            SessionType(
+                "Sh'bam",
+                R.drawable.shabam,
+                "Sh'bam es un programa divertido que combina movimientos de baile sencillos y muy sexys, es perfecto para ponerte en forma y dejar salir al artista que llevas dentro."
+            ),
+            SessionType(
+                "Latino",
+                R.drawable.latino,
+                "Latino mejora tu coordinación a ritmo de bachata, chachachá, reggaetón, samba o el mambo. Bailes latinos que mejoran tu autoestima. Es una actividad recomendada para todas las edades. No hace falta venir acompañado, el trabajo es individual."
+            ),
+            SessionType(
+                "Pilates",
+                R.drawable.pilates,
+                "Pilates es una rutina de acondicionamiento corporal que puede ayudarte a ganar flexibilidad, fuerza muscular y resistencia en las piernas, abdominales, brazos, caderas y espalda. Pone énfasis en la alineación de la columna vertebral y la pelvis, en la respiración y en el desarrollo de un tronco fuerte y mejora la coordinación y el equilibrio."
+            ),
+            SessionType(
+                "Yoga",
+                R.drawable.yoga,
+                "En el Yoga, como en la vida, se trata de encontrar la dicha y la serenidad del momento. Todo el mundo puede practicar yoga. Sin tener en cuenta la edad, la experiencia o el nivel de flexibilidad, todos podemos beneficiarnos del yoga, siempre y cuando mantengamos la flexibilidad mental y la paciencia. Las clases de yoga te equilibran el día."
+            )
         )
         val times: List<String> = listOf(
             "17:00 - 18:00",
@@ -90,5 +221,6 @@ object LocalRepository : Repository {
         }
         return trainingSessions
     }
+
 
 }

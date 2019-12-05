@@ -8,6 +8,90 @@
     android:padding="@dimen/schedule_item_padding"
     tools:context=".ui.schedule.ScheduleActivity">
 
-    <!-- TODO -->
 
+
+    <TextView
+        android:id="@+id/lblTime_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="17:00 - 18:00"
+        app:layout_constraintBottom_toTopOf="@+id/imageView_item"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_item"
+        android:layout_width="74dp"
+        android:layout_height="74dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lblTrainer_item"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTime_item"
+        tools:srcCompat="@tools:sample/avatars[0]" />
+
+    <Button
+        android:id="@+id/btnJoin_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/join_element"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/schedule_item_join"
+        app:layout_constraintBottom_toTopOf="@+id/lblParticipantes_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblNameTraining_item"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblParticipantes_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="46 Participantes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lblRoom_item"
+        app:layout_constraintTop_toBottomOf="@+id/btnJoin_item" />
+
+    <TextView
+        android:id="@+id/lblTrainer_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="158dp"
+        android:text="Trainer 2"
+        app:layout_constraintBottom_toTopOf="@+id/lblRoom_item"
+        app:layout_constraintEnd_toStartOf="@+id/btnJoin_item"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item"
+        app:layout_constraintTop_toBottomOf="@+id/lblNameTraining_item" />
+
+    <TextView
+        android:id="@+id/lblRoom_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="112dp"
+        android:text="Zumba Room"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lblParticipantes_item"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item"
+        app:layout_constraintTop_toBottomOf="@+id/lblTrainer_item"
+        app:layout_constraintVertical_bias="0.312" />
+
+    <TextView
+        android:id="@+id/lblNameTraining_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="158dp"
+        android:text="Zumba"
+        app:layout_constraintBottom_toTopOf="@+id/lblTrainer_item"
+        app:layout_constraintEnd_toStartOf="@+id/btnJoin_item"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView_item"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

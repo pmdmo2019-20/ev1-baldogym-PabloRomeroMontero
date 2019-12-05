@@ -16,4 +16,15 @@
         <item name="android:textColor">@color/white_semi</item>
     </style>
 
+
+    <style name="join_element">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingStart">@dimen/schedule_weekbar_horizontalPadding</item>
+        <item name="android:paddingEnd">@dimen/schedule_weekbar_horizontalPadding</item>
+        <item name="android:paddingTop">@dimen/schedule_weekbar_verticalPadding</item>
+        <item name="android:paddingBottom">@dimen/schedule_weekbar_verticalPadding</item>
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
 </resources>
